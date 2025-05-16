@@ -8,6 +8,7 @@ from pygame.time import delay as slp
 
 from colors import *
 from pygame_config import *
+import states
 import classes_and_objects.shapes as shapes
 import classes_and_objects.boxes as boxes
 
@@ -70,6 +71,33 @@ def main(): # MAIN FUNCTION
     quit()
 # ADD CLASSES HERE
 
+
+class Main():
+
+    def __init__(self):
+        pygame.init()
+        pygame.font.init()
+        pygame.display.set_caption(PYGAME_CAPTION) # Window Caption
+
+        self.window = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+        self.clock = pygame.time.Clock()
+
+        self.state_manager = states.StateManager(self.window)
+
+        self.states = {}
+
+    def run(self):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            keys = pygame.key.get_pressed()
+
+            self.clock.tick(FPS)
+        
+            
 
 
 # ADD CLASSES ABOVE
