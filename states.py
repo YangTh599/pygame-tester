@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 pygame.init()
 pygame.font.init()
@@ -23,8 +24,14 @@ class State:
 
 
     def run(self):
+        raise NotImplementedError("run() needs to be implemented")
+    
+    def update(self):
+        raise NotImplementedError("update() needs to be implemented")
+    
+    def draw(self):
+        raise NotImplementedError("draw() needs to be implemented")
 
-        raise NotImplementedError("needs to be implemented")
     
 class MainMenu(State):
 

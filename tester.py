@@ -82,7 +82,7 @@ class Main():
         self.window = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
 
-        self.state_manager = states.StateManager(self.window)
+        self.state_manager = states.StateManager(self.window, None)
 
         self.states = {}
 
@@ -95,12 +95,23 @@ class Main():
 
             keys = pygame.key.get_pressed()
 
+            self.update()
+            self.draw()
             self.clock.tick(FPS)
+
+    def update(self):
+        pass
+
+    def draw(self):
+        self.window.fill(THAYER_GREEN)
+
+        pygame.display.update()
         
             
 
 
 # ADD CLASSES ABOVE
 if __name__ == "__main__": 
-    main()
+    m = Main()
+    m.run()
 
